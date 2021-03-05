@@ -101,7 +101,7 @@ class SentimentAnalysis:
         neutral = self.percentage(neutral, self.NoOfTerms)
 
         # finding average reaction
-        polarity = polarity / int(self.NoOfTerms)
+        polarity /= int(self.NoOfTerms)
         relpolarity = max(positive,wpositive,spositive,negative,wnegative,snegative,neutral)
 
         # printing out data
@@ -117,7 +117,7 @@ class SentimentAnalysis:
             print("Weakly Positive")
             verdict = "Weakly Positive"
             self.dictionary['verd'] = "Weakly Positive"
-            
+
         elif (polarity > 0.3 and polarity <= 0.6):
             print("Positive")
             verdict = "Positive"

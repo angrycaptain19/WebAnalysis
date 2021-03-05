@@ -45,10 +45,8 @@ def signup(request):
 
 
 def signin(request):
-    context = {}
-    
-    if(request.method == "POST"):
-        
+    if (request.method == "POST"):
+
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -58,16 +56,18 @@ def signin(request):
             if user.is_active:
                 login(request,user)
                 return HttpResponseRedirect(reverse('homepage:home'))
-            
+
             else:
                 return HttpResponse('account is NOT Active')
-            
+
         else:
             print("someone tried to login and failed")
             print("username: {} and password {}".format(username,password))
             return HttpResponse("invalid login supplied")
-    
+
     else:
+        context = {}
+
         return render(request,'signin.htm' , context)
 
 
